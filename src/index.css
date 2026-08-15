@@ -1,0 +1,475 @@
+@import "tailwindcss";
+
+/* ============================================================
+   🎀 BIRTHDAY EXPERIENCE — GLOBAL DESIGN SYSTEM
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap');
+
+:root {
+  --pink-soft: #ffd6e7;
+  --pink-rose: #ff85a1;
+  --pink-hot: #ff3d7f;
+  --pink-deep: #c9184a;
+  --lavender: #c77dff;
+  --purple: #7b2d8b;
+  --purple-deep: #3d0066;
+  --gold: #ffd700;
+  --gold-soft: #ffe680;
+  --white: #ffffff;
+  --cream: #fff5f8;
+
+  --gradient-main: linear-gradient(135deg, #1a0020 0%, #2d0050 30%, #4a0070 60%, #1a0020 100%);
+  --gradient-pink: linear-gradient(135deg, #ff3d7f, #c77dff);
+  --gradient-warm: linear-gradient(135deg, #ff85a1, #ffd6e7, #c77dff);
+  --gradient-gold: linear-gradient(135deg, #ffd700, #ff85a1);
+
+  --shadow-pink: 0 0 30px rgba(255, 61, 127, 0.4);
+  --shadow-glow: 0 0 60px rgba(199, 125, 255, 0.6);
+  --shadow-gold: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0010;
+  color: white;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-dancing  { font-family: 'Dancing Script', cursive; }
+.font-inter    { font-family: 'Inter', sans-serif; }
+
+/* ============================================================
+   GLASSMORPHISM
+   ============================================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.glass-pink {
+  background: rgba(255, 61, 127, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 61, 127, 0.2);
+  border-radius: 20px;
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================
+   GLOW EFFECTS
+   ============================================================ */
+
+.glow-pink {
+  box-shadow: 0 0 30px rgba(255, 61, 127, 0.5), 0 0 60px rgba(255, 61, 127, 0.2);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(199, 125, 255, 0.5), 0 0 60px rgba(199, 125, 255, 0.2);
+}
+
+.glow-gold {
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.2);
+}
+
+.text-glow-pink {
+  text-shadow: 0 0 20px rgba(255, 61, 127, 0.8), 0 0 40px rgba(255, 61, 127, 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 20px rgba(199, 125, 255, 0.8), 0 0 40px rgba(199, 125, 255, 0.4);
+}
+
+/* ============================================================
+   GRADIENTS
+   ============================================================ */
+
+.bg-birthday {
+  background: var(--gradient-main);
+}
+
+.text-gradient-pink {
+  background: var(--gradient-pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   BUTTON STYLES
+   ============================================================ */
+
+.btn-glass {
+  position: relative;
+  padding: 16px 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-pink);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50px;
+}
+
+.btn-glass:hover::before {
+  opacity: 0.3;
+}
+
+.btn-glass:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(255, 61, 127, 0.4);
+  border-color: rgba(255, 61, 127, 0.5);
+}
+
+.btn-glass span { position: relative; z-index: 1; }
+
+.btn-pink {
+  background: var(--gradient-pink);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255, 61, 127, 0.6);
+}
+
+/* ============================================================
+   FLAME ANIMATIONS
+   ============================================================ */
+
+@keyframes flicker1 {
+  0%, 100% { transform: scaleX(1) scaleY(1) rotate(-2deg); opacity: 1; }
+  25% { transform: scaleX(0.9) scaleY(1.1) rotate(2deg); opacity: 0.95; }
+  50% { transform: scaleX(1.1) scaleY(0.95) rotate(-1deg); opacity: 1; }
+  75% { transform: scaleX(0.95) scaleY(1.05) rotate(3deg); opacity: 0.98; }
+}
+
+@keyframes flicker2 {
+  0%, 100% { transform: scaleX(1.05) scaleY(1) rotate(1deg); opacity: 0.98; }
+  33% { transform: scaleX(0.9) scaleY(1.15) rotate(-3deg); opacity: 1; }
+  66% { transform: scaleX(1.1) scaleY(0.9) rotate(2deg); opacity: 0.95; }
+}
+
+@keyframes flicker3 {
+  0%, 100% { transform: scaleX(1) scaleY(1.05) rotate(2deg); opacity: 1; }
+  40% { transform: scaleX(1.15) scaleY(0.95) rotate(-2deg); opacity: 0.96; }
+  80% { transform: scaleX(0.88) scaleY(1.12) rotate(1deg); opacity: 1; }
+}
+
+@keyframes flameGlow {
+  0%, 100% { box-shadow: 0 0 10px 3px rgba(255, 165, 0, 0.6), 0 0 25px 8px rgba(255, 100, 0, 0.3); }
+  50% { box-shadow: 0 0 15px 5px rgba(255, 200, 0, 0.8), 0 0 35px 12px rgba(255, 130, 0, 0.4); }
+}
+
+@keyframes smokeRise {
+  0% { transform: translateY(0) translateX(0) scaleX(1); opacity: 0.6; }
+  50% { transform: translateY(-30px) translateX(5px) scaleX(1.5); opacity: 0.3; }
+  100% { transform: translateY(-70px) translateX(-5px) scaleX(2); opacity: 0; }
+}
+
+/* ============================================================
+   PARTICLE ANIMATIONS
+   ============================================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(120deg); }
+  66% { transform: translateY(-8px) rotate(240deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-5px); }
+  75% { transform: translateY(-25px) translateX(8px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+@keyframes petalFall {
+  0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(110vh) translateX(80px) rotate(720deg); opacity: 0; }
+}
+
+@keyframes balloonFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes balloonFloat2 {
+  0%, 100% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(10px) rotate(-2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 61, 127, 0.4); }
+  50% { box-shadow: 0 0 60px rgba(255, 61, 127, 0.8), 0 0 100px rgba(255, 61, 127, 0.3); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  80% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(60px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInBlur {
+  0% { opacity: 0; filter: blur(20px); }
+  100% { opacity: 1; filter: blur(0px); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCaret {
+  from, to { border-color: transparent; }
+  50% { border-color: rgba(255, 133, 161, 0.8); }
+}
+
+@keyframes shooting-star {
+  0% { transform: translateX(-200px) translateY(-200px) rotate(45deg); opacity: 1; }
+  100% { transform: translateX(300px) translateY(300px) rotate(45deg); opacity: 0; }
+}
+
+@keyframes rotate3d {
+  from { transform: perspective(800px) rotateY(0deg); }
+  to { transform: perspective(800px) rotateY(360deg); }
+}
+
+@keyframes giftShake {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  10% { transform: rotate(-5deg) translateX(-3px); }
+  20% { transform: rotate(5deg) translateX(3px); }
+  30% { transform: rotate(-5deg) translateX(-3px); }
+  40% { transform: rotate(5deg) translateX(3px); }
+  50% { transform: rotate(0deg) translateX(0); }
+}
+
+@keyframes envelopeOpen {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-180deg); }
+}
+
+@keyframes letterSlide {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-60%); }
+}
+
+@keyframes universeRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes neonPulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px #ff3d7f, 0 0 20px #ff3d7f, 0 0 40px #ff3d7f, 0 0 80px #c77dff;
+  }
+  50% { 
+    text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 80px #ff3d7f, 0 0 120px #c77dff;
+  }
+}
+
+@keyframes firework {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* ============================================================
+   CARD FLIP
+   ============================================================ */
+
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-3d-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-3d.flipped .card-3d-inner {
+  transform: rotateY(180deg);
+}
+
+.card-3d-front,
+.card-3d-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.card-3d-back {
+  transform: rotateY(180deg);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff3d7f, #c77dff);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   GIFT BOX 3D
+   ============================================================ */
+
+.gift-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.gift-3d:hover {
+  transform: translateY(-10px) rotateY(15deg) rotateX(5deg);
+}
+
+/* ============================================================
+   SECTION TRANSITIONS
+   ============================================================ */
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   TILT CARD
+   ============================================================ */
+
+.tilt-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+}
+
+@media (min-width: 769px) {
+  .mobile-only { display: none !important; }
+}
