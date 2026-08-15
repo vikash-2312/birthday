@@ -22,8 +22,8 @@ export default function MiniGame() {
     setHearts(prev => [...prev, {
       id,
       x: Math.random() * 85 + 5,
-      size: Math.random() * 24 + 20,
-      duration: Math.random() * 2 + 2,
+      size: Math.random() * 24 + 30, // Larger so it's easier to tap
+      duration: Math.random() * 3 + 4, // Slower (4-7 seconds instead of 2-4)
       delay: 0,
       color: ['#ff3d7f', '#c77dff', '#ff85a1', '#ffd700'][Math.floor(Math.random() * 4)],
     }]);
